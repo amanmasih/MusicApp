@@ -1,1 +1,117 @@
+============================================================== Swagger ================================================================
+
+Swagger Documentation
+
+This is used for Documentation 
+			-This swagger containes all the endpoints of RestAPIs.
+-----------------------------------------------------------------------------------------------Steps to Implement Swagger---------------------------------------------------------------------------------------------- 
+
+1-add 2 depepndency of swagger 
+	<!--springfox-swagger-ui-->
+	<dependency>
+		<groupId>io.springfox</groupId>
+		<artifactId>springfox-swagger-ui</articfactId>
+		<version>2.9.2</version>
+	</dependency>
+	
+
+	<!--swagger 2-->
+	<dependency>
+		<groupId>io.springfox</groupId>
+		<artifactId>springfox-swagger2</articfactId>
+		<version>2.9.2</version>
+	</dependency>
+
+	
+2-createa package named swagger and class as swaggerConfig
+
+	import static springfac.documentation.builder.PathSelectors.regex;
+
+	@Configuration
+	@EnableSwagger2
+	public class SwaggerConfig{
+
+	@Bean //Docket is a Builder which is intended to be primary interface into swagger -spring mvc framework , this will create an UI
+	public Docker ProductApi(){
+			//
+			//path of base package is the name of the package all the way down to controllers location
+	return Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.basePackage("com.stackroute.SpringrestapiusingmongoDb.controller"))
+	.paths(regex("/api/v2/.*")).build();//matching controller paths of theat service(regex ' . ' means "all/anything that is present" in regex ) 
+	}//end of function			
+	}//end of class
+
+3-you can see a documentation is generated
+4-head on to http://localhost:8083/v2/api-docs since its not in a readable format 
+	
+	http://localhost:8083/swagger-ui.html and play with swag on swagger 
+
+5- you can enter the data and test your end points here also 
+6- API Gateway cannot process the swagger for its a router ::-NOTE THIS 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
